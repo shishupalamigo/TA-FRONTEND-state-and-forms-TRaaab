@@ -18,6 +18,9 @@
             display: block;
             border-radius: 5px;
         }
+        .active {
+            background: brown;
+        }
     </style>
 </head>
 <body class="m-20">
@@ -35,22 +38,22 @@
                 this.state = {
                     active: "basketball"
                 }
-                this.names = ["basketball", "pubg", "tiger", "phone", "laptop", "cricket"];
             }
         
-            displayImage = (event,name) => {
-                event.target.classList.add("active");
-                this.setState({
-                    active: name,
-                })
-            }
-
             render() {
+               let names = ["basketball", "pubg", "tiger", "phone", "laptop", "cricket"];
+
                 return (
                     <>
                     <div className="flex justify-center">
                         {
-                            this.names.map((name, i) => <button className ={this.state.active === name ? "active": ""}  onClick={(event) => this.displayImage(event, name)} key={i}>{name.toUpperCase()}</button>)
+                            names.map((name, i) => {
+                               return ( <button onClick={() => this.setState({
+                                 active: name  
+                                })
+                            } key={i} className={this.state.active === name ? "active" : ""}>{name.toUpperCase()}</button>
+                               )
+                            })
                         }                                      
                     </div>
 
