@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        button {
+            background: cadetblue;
+            padding: 5px 10px;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background: crimson;
+        }
+        .active {
+            background: chocolate;
+        }
+    </style>
+</head>
+<body class="m-20">
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+        counter: 0,
+        step: 5,
+        max: 15
+    }
+  }
+  handleIncrement = () => {
+    let {counter, step, max} = this.state;
+        this.setState({
+            counter: counter + step > max ? counter : counter + step
+        });
+   } 
+  handleDecrement = () => {
+    let {counter, step, max} = this.state;
+
+    this.setState({
+      counter: counter - step
+    })
+   } 
+   handleReset = () => {
+    this.setState({
+      counter: 0,
+      step: 5,
+      max: 15
+    })
+   }  
+  render() {
+    return (
+      <div className="bg-green-300 p-10 rounded">
+        <h1 className="text-center text-3xl font-bold mb-10">Counter App</h1>
+         <div className="flex flex-col items-center">   
+        <h2 className="text-2xl font-bold mb-10 text-green-800">{this.state.counter}</h2>
+        <div className="mb-10">
+            <h3 className="text-2xl my-4 text-center">Steps</h3>
+            {
+                [5, 10, 15].map((value, i) => {
+                    return (
+                        <button className={this.state.step === value ? "active" : ""} key={i} onClick={() => this.setState({ step : value})} >{value}</button>   
+                    )
+                })
+            }
+        </div>
+        <div className="mb-10">
+                        <h3 class="text-2xl my-4  text-center">Max Value</h3>
+                        {
+                            [15, 100, 200].map((value, i) => <button className={this.state.max === value ? "active" : ""} onClick={() => {
+                                this.setState({
+                                    max: value
+                                })
+                            }} key={i}>{value}</button>)
+                        }
+                    </div>
+        <div>
+        <button onClick= {this.handleIncrement} className="border bg-blue-600 text-white font-bold p-3  rounded mr-5 hover:bg-green-600">
+          Increase
+        </button>
+        <button className="border bg-blue-600 text-white font-bold p-3  rounded mr-5 hover:bg-green-600"
+          onClick={this.handleDecrement}
+        >
+          Decrease
+        </button>
+        <button className="border bg-blue-600 text-white font-bold p-3  rounded mr-5 hover:bg-red-600"
+          onClick={this.handleReset}
+        >
+          Reset
+        </button>
+        </div>
+        </div>
+      </div>
+    );
+  }
+}
+    ReactDOM.render(<App />, document.getElementById('root'));    
+    
+    </script>
+
+</body>
+</html>

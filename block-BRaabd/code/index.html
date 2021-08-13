@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Image</title>
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        button {
+            border: 2px solid bisque;
+            background: rgba(1, 18, 95, 0.699);
+            color: white;
+            padding: 5px 10px;
+            margin-right: 10px;
+            display: block;
+            border-radius: 5px;
+        }
+        .active {
+            background: brown;
+        }
+    </style>
+</head>
+<body class="m-20">
+    <div id="root"></div>
+
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+        
+        
+        class App extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    active: "basketball"
+                }
+            }
+        
+            render() {
+               let names = ["basketball", "pubg", "tiger", "phone", "laptop", "cricket"];
+
+                return (
+                    <>
+                    <div className="flex justify-center">
+                        {
+                            names.map((name, i) => {
+                               return ( <button onClick={() => this.setState({
+                                 active: name  
+                                })
+                            } key={i} className={this.state.active === name ? "active" : ""}>{name.toUpperCase()}</button>
+                               )
+                            })
+                        }                                      
+                    </div>
+
+
+                        <div className="mt-5 flex justify-center">
+                            <img src={`../assets/${this.state.active}.jpg`} alt={this.state.active} className="w-1/2"/>
+                        </div>
+                    </>
+                );
+            }
+        }
+
+        ReactDOM.render(<App />, document.getElementById('root'))
+    </script>    
+</body>
+</html>
