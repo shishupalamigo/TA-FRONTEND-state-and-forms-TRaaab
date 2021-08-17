@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font Tester</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+</head>
+
+<body class="m-10">
+    <div id="root"></div>
+
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+
+        let fonts = ["Roboto", "Poppins", "Open Sans", "Georama", "Noto Sans JP", "Oswald", "Style Script", "Palette Mosaic", "Merriweather", "Crimson Pro"];
+
+        class App extends React.Component {
+            constructor(props) {
+                super();
+                this.state = {
+                    inputText: "",
+                    fontSize: "16"
+                }
+            }
+
+            handleText = (event) => {
+                this.setState({
+                    inputText: event.target.value
+                })
+            }
+            handleFontSize = (event) => {
+                this.setState({
+                    fontSize: event.target.value
+                })
+            }
+            render() {
+                let size = this.state.fontSize + "px";
+                return (
+                    <>
+                        <h1 className="text-center text-3xl font-bold mb-20">Font Slider</h1>
+                        <div className="input-box flex">
+                            <input value={this.state.inputText} type="text" className="input" onChange={this.handleText} placeholder="Enter the text" />
+                            <input className="slider" value={this.state.fontSize} type="range" min="16" max="100" onChange={this.handleFontSize} />
+                        </div>
+
+                        <section className="flex flex-wrap">
+                            {
+                                fonts.map((font) => (
+                                    <div className="flex-50 display-box" key={font}>
+                                        <h2>{font}</h2>
+                                        <div>
+                                            <h2 style={{ fontFamily: font, fontSize: size }}>{this.state.inputText}</h2>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </section>
+                    </>
+                )
+            }
+        }
+
+
+        ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>
