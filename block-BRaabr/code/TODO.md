@@ -16,4 +16,4 @@ Create a multiple input with all the different input types.
 
 - Create another form and all the error message
 
-![Form Validation]('../assets/validation.png')
+![Form Validation](../assets/validation.png)
