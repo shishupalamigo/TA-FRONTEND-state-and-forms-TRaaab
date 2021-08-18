@@ -1,0 +1,11 @@
+input {
+    padding: 10px;
+    border-radius: 5px;   
+}
+
+.error {
+        border: 2px solid red;
+}
+.error + span {
+    color: red;
+}
