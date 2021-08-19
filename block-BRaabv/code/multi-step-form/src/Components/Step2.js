@@ -6,7 +6,7 @@ class Step2 extends React.Component {
       // Prop: The current step
       return null;
     }
-    // The markup for the Step 1 UI
+    // The markup for the Step 2 UI
     return (
       <div className="form-group">
         <h2 className="text-lg font-bold mb-10">Message</h2>
@@ -18,7 +18,7 @@ class Step2 extends React.Component {
               id="message"
               name="message"
               placeholder="Enter Message"
-              value={this.props.message} // Prop: The email input data
+              value={this.props.message} // Prop: The message input data
               onChange={this.props.handleChange} // Prop: Puts data into state
             />
           </label>

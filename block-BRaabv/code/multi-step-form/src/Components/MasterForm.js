@@ -137,16 +137,19 @@ class MasterForm extends React.Component {
                   currentStep={this.state.currentStep}
                   handleChange={this.handleChange}
                   email={this.state.email}
+                  firstName= {this.state.firstName}
+                  lastName= {this.state.lastName}
+                  dateOfBirth={this.state.dateOfBirth}
                 />
                 <Step2
                   currentStep={this.state.currentStep}
                   handleChange={this.handleChange}
-                  username={this.state.username}
+                  message={this.state.message}
                 />
                 <Step3
                   currentStep={this.state.currentStep}
                   handleChange={this.handleChange}
-                  password={this.state.password}
+                  choice={this.state.choice}
                 />
 
                 {this.previousButton}
