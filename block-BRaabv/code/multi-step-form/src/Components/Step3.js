@@ -6,7 +6,7 @@ class Step3 extends React.Component {
       // Prop: The current step
       return null;
     }
-    // The markup for the Step 1 UI
+    // The markup for the Step 3 UI
     return (
       <div className="form-group">
         <h2 className="text-lg font-bold mb-10">Checkbox</h2>

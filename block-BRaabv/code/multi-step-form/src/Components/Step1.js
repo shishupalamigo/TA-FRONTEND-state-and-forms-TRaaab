@@ -19,7 +19,7 @@ class Step1 extends React.Component {
               name="firstName"
               type="text"
               placeholder="First Name"
-              value={this.props.firstName} // Prop: The email input data
+              value={this.props.firstName} // Prop: first name data 
               onChange={this.props.handleChange} // Prop: Puts data into state
             />
           </label>
@@ -32,7 +32,7 @@ class Step1 extends React.Component {
               name="lastName"
               type="text"
               placeholder="Last Name"
-              value={this.props.lastName} // Prop: The email input data
+              value={this.props.lastName} // Prop: The last name input data
               onChange={this.props.handleChange} // Prop: Puts data into state
             />
           </label>
@@ -48,7 +48,7 @@ class Step1 extends React.Component {
               name="dateOfBirth"
               type="date"
               placeholder="Last Name"
-              value={this.props.dateOfBirth} // Prop: The email input data
+              value={this.props.dateOfBirth} // Prop: The Date of Birth input data
               onChange={this.props.handleChange} // Prop: Puts data into state
             />
           </label>
@@ -74,7 +74,7 @@ class Step1 extends React.Component {
               name="address"
               type="text"
               placeholder="Enter Address"
-              value={this.props.address} // Prop: The email input data
+              value={this.props.address} // Prop: The Address input data
               onChange={this.props.handleChange} // Prop: Puts data into state
             />
           </label>
